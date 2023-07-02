@@ -1,4 +1,3 @@
-import { Search } from 'lucide-react';
 import { FC } from 'react';
 import { Input } from './ui/Input';
 
