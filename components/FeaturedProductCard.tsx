@@ -17,7 +17,7 @@ const FeaturedProductCard: FC<FeaturedProductCardProps> = ({}) => {
         </div>
         <div className="flex flex-col gap-3">
           <p className="text-darkGray">Title</p>
-          <p className="text-darkGray">Subtitle</p>
+          <p className="text-lightSlateGray">Subtitle</p>
         </div>
       </div>
       <div className="flex flex-col items-center justify-between border border-lightSlateGray text-center">
