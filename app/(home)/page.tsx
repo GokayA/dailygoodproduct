@@ -8,7 +8,7 @@ export default function Home() {
       <div className="col-span-2">
         <Greeting />
       </div>
-      <div className="col-start-3 row-span-3 border-l">
+      <div className="col-start-3 row-span-3 border-l border-borderShinyblue">
         <div className="container">
           <h1 className=" text-darkGray pb-8 ">Top products</h1>
           <p>Product1</p>
@@ -23,9 +23,9 @@ export default function Home() {
           <p>Product1</p>
         </div>
       </div>
-      <div className="row-span-2 col-span-2 ">
-        <Separator className="mb-10" />
-        <h1 className="text-darkGray pb-8 text-2xl">Todays products</h1>
+      <div className="grid row-span-2 col-span-2 gap-4">
+        <Separator className="mb-10 bg-borderShinyblue" />
+        <h1 className="text-darkGray pb-8 text-2xl ">Todays products</h1>
         <FeaturedProductCard />
         <FeaturedProductCard />
         <FeaturedProductCard />
