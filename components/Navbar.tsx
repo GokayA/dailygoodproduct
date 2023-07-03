@@ -1,7 +1,9 @@
 import { authOptions } from '@/lib/auth';
+import { cn } from '@/lib/utils';
 import { Link2 } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
+import DropMenu from './DropMenu';
 import ProfileNav from './ProfileNav';
 import { buttonVariants } from './ui/Button';
 import { Input } from './ui/Input';
@@ -14,17 +16,26 @@ const Navbar = async () => {
       <div className="flex gap-5">
         <div className="flex items-center">
           <Link href="/" className="flex gap-2 items-center">
-            <Link2 className="h-8 w-8 sm:h-6 sm:w-6" />
-            <p className="hidden text-lightSlateGray hover:text-red-500 text-sm font-medium md:block">
+            <Link2 className="h-7 w-7 sm:h-10 sm:w-10  text-lightSlateGray" />
+            <p className="hidden text-lightSlateGray hover:text-red-500 text-base font-medium md:block">
               PPC
             </p>
+            <div className="sm:hidden flex justify-center items-center">
+              <DropMenu />
+            </div>
           </Link>
         </div>
         {/* Search bar */}
         <div className="">
           <Input placeholder="Search" className="hidden sm:flex" />
         </div>
-        <div className="flex items-center gap-5">
+        <div className="sm:flex items-center gap-5 hidden">
+          <Link
+            href="/products"
+            className="text-base text-lightSlateGray hover:text-red-500"
+          >
+            Products
+          </Link>
           <Link
             href="/about"
             className="text-base text-lightSlateGray hover:text-red-500"
@@ -48,9 +59,7 @@ const Navbar = async () => {
             </Link>
             <Link
               href="/sign-in"
-              className={`${buttonVariants({
-                variant: 'secondary',
-              })} text-base font-normal bg-red-800 text-white hover:text-black`}
+              className={`${buttonVariants()}, text-base font-normal hover:bg-white bg-red-800 text-white hover:text-black`}
             >
               Sign up
             </Link>
