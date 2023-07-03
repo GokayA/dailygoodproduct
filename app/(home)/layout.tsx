@@ -1,8 +1,8 @@
 import Navbar from '@/components/Navbar';
 import { Toaster } from '@/components/ui/Toaster';
 import { cn } from '@/lib/utils';
+import '@/styles/globals.css';
 import { Roboto_Flex } from 'next/font/google';
-import '../styles/globals.css';
 
 const inter = Roboto_Flex({ subsets: ['latin'] });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
         <Navbar />
         {authModal}
 
-        <div className="container max-w-7xl mx-auto h-full pt-12">
+        <div className=" max-w-[90rem] w-full mx-auto h-full pt-12">
           {children}
         </div>
         <Toaster />

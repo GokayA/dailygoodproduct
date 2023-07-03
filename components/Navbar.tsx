@@ -27,7 +27,10 @@ const Navbar = async () => {
         </div>
         {/* Search bar */}
         <div className="">
-          <Input placeholder="Search" className="hidden sm:flex" />
+          <Input
+            placeholder="Search"
+            className="hidden sm:flex bg-greenBlack border-lightSlateGray text-darkGray"
+          />
         </div>
         <div className="sm:flex items-center gap-5 hidden">
           <Link
