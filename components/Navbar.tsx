@@ -8,7 +8,7 @@ import { Input } from './ui/Input';
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
-  const session = true;
+  const session = false;
   return (
     <div className="container flex justify-between items-center h-20  min-w-full">
       <div className="flex gap-5">
