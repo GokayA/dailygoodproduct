@@ -1,4 +1,6 @@
 import Navbar from '@/components/Navbar';
+import { Toaster } from '@/components/ui/Toaster';
+import { cn } from '@/lib/utils';
 import { Roboto_Flex, Roboto_Mono } from 'next/font/google';
 import '../styles/globals.css';
 
@@ -15,10 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={cn('bg-greenBlack', inter.className)}>
+      <body className="bg-greenBlack">
         <Navbar />
         {children}
+        <Toaster />
       </body>
     </html>
   );

@@ -1,20 +1,9 @@
-'use client';
-import { signIn } from 'next-auth/react';
-import { FC } from 'react';
+import SignIn from '@/components/SignIn';
 
-interface pageProps {}
-
-const page: FC<pageProps> = ({}) => {
-  const loginWithGoogle = async () => {
-    try {
-      await signIn('google');
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const page = () => {
   return (
-    <div>
-      <button onClick={loginWithGoogle}>Google</button>
+    <div className="h-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-20">
+      <SignIn />
     </div>
   );
 };

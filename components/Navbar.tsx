@@ -1,14 +1,14 @@
+import { authOptions } from '@/lib/auth';
 import { Link2 } from 'lucide-react';
+import { getServerSession } from 'next-auth';
 import Link from 'next/link';
-import { FC } from 'react';
 import ProfileNav from './ProfileNav';
 import { Button, buttonVariants } from './ui/Button';
 import { Input } from './ui/Input';
 
-interface NavbarProps {}
+const Navbar = async () => {
+  const session = await getServerSession(authOptions);
 
-const Navbar: FC<NavbarProps> = ({}) => {
-  const session = false;
   return (
     <div className="container flex justify-between items-center h-20  min-w-full">
       <div className="flex gap-5">
@@ -34,8 +34,8 @@ const Navbar: FC<NavbarProps> = ({}) => {
         </div>
       </div>
       <div className="flex gap-5">
-        {session ? (
-          <ProfileNav />
+        {session?.user ? (
+          <ProfileNav user={session.user} />
         ) : (
           <>
             <Link

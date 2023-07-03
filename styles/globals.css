@@ -71,7 +71,7 @@
 @layer base {
   * {
     @apply border-border;
-    @apply bg-greenBlack;
+    /* @apply bg-greenBlack; */
   }
   body {
     @apply bg-background text-foreground;
