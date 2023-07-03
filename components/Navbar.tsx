@@ -3,7 +3,7 @@ import { Link2 } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import ProfileNav from './ProfileNav';
-import { Button, buttonVariants } from './ui/Button';
+import { buttonVariants } from './ui/Button';
 import { Input } from './ui/Input';
 
 const Navbar = async () => {
