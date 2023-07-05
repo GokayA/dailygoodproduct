@@ -1,7 +1,6 @@
 'use client';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
-import { FC } from 'react';
 import UserAvatar from './UserAvatar';
 import {
   DropdownMenu,
@@ -19,10 +18,13 @@ const ProfileNav = ({ user }: ProfileNavProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <UserAvatar />
+        <UserAvatar
+          user={{ name: user.name || null, image: user.image || null }}
+          className="h-8 w-8"
+        />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        Name
+        {user.name}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"

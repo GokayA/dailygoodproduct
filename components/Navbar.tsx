@@ -1,5 +1,4 @@
 import { authOptions } from '@/lib/auth';
-import { cn } from '@/lib/utils';
 import { Link2 } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
