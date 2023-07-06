@@ -15,7 +15,7 @@ const page: FC<pageProps> = ({}) => {
       <Editor />
 
       <div className="w-full flex justify-end">
-        <Button type="submit" className="w-full" form="subreddit-post-form">
+        <Button type="submit" className="w-full" form="post-form">
           Post
         </Button>
       </div>

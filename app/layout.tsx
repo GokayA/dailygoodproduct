@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/Toaster';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
@@ -21,12 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn('bg-greenBlack', inter.className)}>
       <body className="bg-greenBlack">
-        <Navbar />
-        {authModal}
+        <Providers>
+          <Navbar />
+          {authModal}
 
-        <div className=" max-w-[90rem] w-full mx-auto h-full pt-12">
-          {children}
-        </div>
+          <div className=" max-w-[90rem] w-full mx-auto h-full pt-12">
+            {children}
+          </div>
+        </Providers>
         <Toaster />
       </body>
     </html>
