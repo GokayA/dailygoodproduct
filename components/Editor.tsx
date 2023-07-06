@@ -21,29 +21,21 @@ const Editor = () => {
     resolver: zodResolver(PostValidator),
     defaultValues: {
       title: '',
-      subTitle: '',
       content: null,
-      image: null,
     },
   });
 
   const ref = useRef<EditorJS>();
   const _titleRef = useRef<HTMLTextAreaElement>(null);
-  const _subTitleRef = useRef<HTMLTextAreaElement>(null);
-  const _imageRef = useRef<HTMLInputElement>(null);
+
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const pathname = usePathname();
   const router = useRouter();
 
   const { mutate: createPost } = useMutation({
-    mutationFn: async ({
-      subTitle,
-      title,
-      content,
-      image,
-    }: PostCreationRequest) => {
-      const payload: PostCreationRequest = { title, subTitle, content, image };
-      const { data } = await axios.post('api/post/create', payload);
+    mutationFn: async ({ title, content }: PostCreationRequest) => {
+      const payload: PostCreationRequest = { title, content };
+      const { data } = await axios.post('api/create/post', payload);
       return data;
     },
     onError: () => {
@@ -114,6 +106,18 @@ const Editor = () => {
   }, []);
 
   useEffect(() => {
+    if (Object.keys(errors).length) {
+      for (const [_key, value] of Object.entries(errors)) {
+        value;
+        toast({
+          title: 'Something went wrong.',
+          description: (value as { message: string }).message,
+          variant: 'destructive',
+        });
+      }
+    }
+  }, [errors]);
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMounted(true);
     }
@@ -141,7 +145,6 @@ const Editor = () => {
     const blocks = await ref.current?.save();
     const payload: PostCreationRequest = {
       title: data.title,
-      subTitle: data.subTitle,
       content: blocks,
     };
     createPost(payload);
@@ -152,7 +155,6 @@ const Editor = () => {
   }
 
   const { ref: titleRef, ...titleRest } = register('title');
-  const { ref: subTitleRef, ...subTitleRest } = register('subTitle');
 
   return (
     <div className="w-full p-4 bg-borderShinyblue rounded-md border border-darkGray">
@@ -168,17 +170,6 @@ const Editor = () => {
             placeholder="Product Name"
             className="text-white w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
           />
-          <TextareaAutosize
-            ref={(e) => {
-              subTitleRef(e);
-              //@ts-ignore
-              _subTitleRef.current = e;
-            }}
-            {...subTitleRest}
-            placeholder="Explain your product with most 30 characters."
-            className="text-white w-full resize-none appearance-none overflow-hidden bg-transparent text-2xl font-bold focus:outline-none"
-          />
-
           <div id="editor" className="min-h-[300px]" />
         </div>
       </form>
