@@ -4,17 +4,13 @@ import { PostCreationRequest, PostValidator } from '@/lib/validators/post';
 import '@/styles/editor.css';
 import type EditorJS from '@editorjs/editorjs';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { set } from 'date-fns';
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import TextareaAutosize from 'react-textarea-autosize';
-import { z } from 'zod';
 
-interface EditorProps {
-  subredditId: string;
-}
+interface EditorProps {}
 
-const Editor: FC<EditorProps> = ({ subredditId }) => {
+const Editor: FC<EditorProps> = ({}) => {
   const {
     register,
     handleSubmit,
@@ -22,7 +18,6 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
   } = useForm<PostCreationRequest>({
     resolver: zodResolver(PostValidator),
     defaultValues: {
-      subredditId,
       title: '',
       content: null,
     },
@@ -52,7 +47,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
         onReady() {
           ref.current = editor;
         },
-        placeholder: 'Type here to write your post...',
+        placeholder: 'Tell your opinions about the product',
         inlineToolbar: true,
         data: { blocks: [] },
         tools: {
@@ -103,15 +98,15 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
     return null;
   }
   return (
-    <div className="w-full p-4 bg-zinc-50 rounded-lg border border-zinc-200">
+    <div className="w-full p-4 bg-borderShinyblue rounded-md border border-darkGray">
       <form id="post-form" className="w-fit" onSubmit={() => {}}>
         {/* Classnameleri kontrol et */}
-        <div className="prose prose-stone dark:prose-invert">
+        <div className="text-darkGray ">
           <TextareaAutosize
-            placeholder="Title"
+            placeholder="Product Name"
             className="w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
           />
-          <div id="editor" className="min-h-[500px]" />
+          <div id="editor" className="min-h-[300px]" />
         </div>
       </form>
     </div>
