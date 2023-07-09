@@ -3,7 +3,6 @@ import Greeting from '@/components/Greeting';
 import PostFeed from '@/components/PostFeed';
 import { Separator } from '@/components/ui/separator';
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config';
-import { getAuthSession } from '@/lib/auth';
 import { db } from '@/lib/db';
 
 export default async function Home() {

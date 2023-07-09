@@ -28,7 +28,7 @@ const FeaturedProductCard = ({
           <ImageRenderer content={post.content} />
         </div>
         <div className="flex flex-col gap-3">
-          <a href={post.id}>
+          <a href={`/post/${post.id}`}>
             <p className="text-darkGray">{post.title}</p>
             <p className="text-lightSlateGray">subtitle</p>
           </a>
