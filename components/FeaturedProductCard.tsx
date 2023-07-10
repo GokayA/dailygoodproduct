@@ -4,6 +4,7 @@ import { ArrowUp, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ImageRenderer from './ImageRenderer';
+import PostVoteClient from './post-votes/PostVoteClient';
 
 type PartialVote = Pick<Vote, 'type'>;
 
@@ -13,14 +14,16 @@ interface FeaturedProductCardProps {
     votes: Vote[];
   };
 
-  // votesAmt: number;
-  // currentVote?: PartialVote;
+  votesAmt: number;
+  currentVote?: PartialVote;
   commentAmt: number;
 }
 
 const FeaturedProductCard = ({
   post,
   commentAmt,
+  votesAmt,
+  currentVote,
 }: FeaturedProductCardProps) => {
   return (
     <div className="flex justify-between items-center cursor-pointer hover:border-t  hover:border-t-red-700 pr-2">
@@ -38,10 +41,11 @@ const FeaturedProductCard = ({
           </div>
         </div>
       </Link>
-      <div className="cursor-pointer border-borderShinyblue hover:bg-slate-950  flex flex-col items-center justify-between border border- text-center w-14 h-16 rounded-lg ">
-        <ArrowUp className="text-darkGray pt-2" />
-        <p className="text-lightSlateGray pb-2">145</p>
-      </div>
+      <PostVoteClient
+        initialVote={currentVote?.type}
+        initialVotesAmt={votesAmt}
+        postId={post.id}
+      />
     </div>
   );
 };

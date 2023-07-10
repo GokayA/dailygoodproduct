@@ -35,7 +35,7 @@ const Editor = () => {
   const { mutate: createPost } = useMutation({
     mutationFn: async ({ title, content }: PostCreationRequest) => {
       const payload: PostCreationRequest = { title, content };
-      const { data } = await axios.post('api/create/post', payload);
+      const { data } = await axios.post('api/products/create', payload);
       return data;
     },
     onError: () => {

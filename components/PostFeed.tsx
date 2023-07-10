@@ -22,7 +22,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
     ['useInfinite-query'],
     async ({ pageParam = 1 }) => {
-      const query = `/api/posts?limit=${INFINITE_SCROLLING_PAGINATION_RESULTS}&page=${pageParam}`;
+      const query = `/api/products/fetch?limit=${INFINITE_SCROLLING_PAGINATION_RESULTS}&page=${pageParam}`;
 
       const { data } = await axios.get(query);
       return data as ExtendedPost[];
@@ -53,6 +53,8 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
               <FeaturedProductCard
                 commentAmt={post.comments.length}
                 post={post}
+                currentVote={currentVote}
+                votesAmt={votesAmt}
               />
             </li>
           );
@@ -62,6 +64,8 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
               commentAmt={post.comments.length}
               post={post}
               key={post.id}
+              currentVote={currentVote}
+              votesAmt={votesAmt}
             />
           );
         }
