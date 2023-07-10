@@ -1,7 +1,7 @@
 import EditorOutput from '@/components/EditorOutput';
 import { db } from '@/lib/db';
 import { Post, User, Vote } from '@prisma/client';
-
+import { notFound } from 'next/navigation';
 interface pageProps {
   params: {
     postId: string;
@@ -19,6 +19,8 @@ const page = async ({ params }: pageProps) => {
       author: true,
     },
   });
+
+  if (!post) return notFound();
 
   return (
     <div className="text-darkGray container">
