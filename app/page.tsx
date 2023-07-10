@@ -20,16 +20,17 @@ export default async function Home() {
 
   return (
     <div className="grid grid-rows-1 grid-cols-3 gap-4 ">
-      <div className="col-span-2">
+      <div className="sm:col-span-2 col-span-3">
         <Greeting />
       </div>
-      <div className="col-start-3 row-span-3 border-l border-borderShinyblue">
+      <div className="hidden sm:block sm:col-start-3 sm:row-span-3 border-l border-borderShinyblue">
         <div className="container">
           <h1 className=" text-darkGray pb-8 ">Top products</h1>
           <p>Product</p>
         </div>
       </div>
-      <div className="grid row-span-2 col-span-2 gap-4">
+
+      <div className="grid row-span-3 sm:row-span-2 col-span-3 sm:col-span-2 gap-4">
         <Separator className="mb-10 bg-borderShinyblue" />
         <h1 className="text-darkGray pb-8 text-2xl ">Todays products</h1>
         <PostFeed initialPosts={posts} />

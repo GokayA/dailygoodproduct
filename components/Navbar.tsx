@@ -1,6 +1,6 @@
 import { authOptions } from '@/lib/auth';
-import { Link2 } from 'lucide-react';
 import { getServerSession } from 'next-auth';
+import Image from 'next/image';
 import Link from 'next/link';
 import DropMenu from './DropMenu';
 import ProfileNav from './ProfileNav';
@@ -11,13 +11,21 @@ const Navbar = async () => {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="container flex justify-between items-center h-20  min-w-full">
+    <div className="container flex justify-between items-center h-20 min-w-full">
       <div className="flex gap-5">
         <div className="flex items-center">
           <Link href="/" className="flex gap-2 items-center">
-            <Link2 className="h-7 w-7 sm:h-10 sm:w-10  text-lightSlateGray" />
-            <p className="hidden text-lightSlateGray hover:text-red-500 text-base font-medium md:block">
-              PPC
+            <div className="relative h-16 w-16">
+              <Image
+                src="/ppr.png"
+                alt="Logo image"
+                fill
+                className="object-contain"
+              />
+            </div>
+            {/* <Icons.logo className="h-7 w-7 sm:h-10 sm:w-10  text-lightSlateGray" /> */}
+            <p className="hidden md:block text-lightSlateGray hover:text-red-500 text-base font-medium ">
+              PPR
             </p>
             <div className="sm:hidden flex justify-center items-center">
               <DropMenu />
@@ -25,10 +33,10 @@ const Navbar = async () => {
           </Link>
         </div>
         {/* Search bar */}
-        <div className="">
+        <div className="flex justify-center items-center">
           <Input
             placeholder="Search"
-            className="hidden sm:flex bg-greenBlack border-borderShinyblue text-darkGray"
+            className="hidden  sm:flex bg-greenBlack border-borderShinyblue text-darkGray"
           />
         </div>
         <div className="sm:flex items-center gap-5 hidden">
