@@ -32,8 +32,10 @@ export default async function Home() {
 
       <div className="grid row-span-3 sm:row-span-2 col-span-3 sm:col-span-2 gap-4">
         <Separator className="mb-10 bg-borderShinyblue" />
-        <h1 className="text-darkGray pb-8 text-2xl ">Todays products</h1>
-        <PostFeed initialPosts={posts} />
+        <div className="max-md:container">
+          <h1 className="text-darkGray pb-8 text-2xl ">Todays products</h1>
+          <PostFeed initialPosts={posts} />
+        </div>
       </div>
     </div>
   );

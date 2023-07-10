@@ -24,9 +24,7 @@ const Navbar = async () => {
               />
             </div>
             {/* <Icons.logo className="h-7 w-7 sm:h-10 sm:w-10  text-lightSlateGray" /> */}
-            <p className="hidden md:block text-lightSlateGray hover:text-red-500 text-base font-medium ">
-              PPR
-            </p>
+
             <div className="sm:hidden flex justify-center items-center">
               <DropMenu />
             </div>

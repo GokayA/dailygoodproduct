@@ -21,7 +21,7 @@ const page = async ({ params }: pageProps) => {
   });
 
   return (
-    <div>
+    <div className="text-darkGray container">
       <EditorOutput content={post?.content} />
     </div>
   );
