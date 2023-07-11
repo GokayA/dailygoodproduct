@@ -26,7 +26,7 @@ export default async function Home() {
       <div className="hidden sm:block sm:col-start-3 sm:row-span-3 border-l border-borderShinyblue">
         <div className="container">
           <h1 className=" text-darkGray pb-8 ">Top products</h1>
-          <p>Product</p>
+          <p className="text-white">Work in Progress.</p>
         </div>
       </div>
 

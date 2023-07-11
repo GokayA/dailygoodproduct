@@ -11,12 +11,13 @@ const UserAvatar: FC<UserAvatarProps> = ({ user }) => {
   return (
     <div>
       {user.image ? (
-        <div className="relative aspect-square h-14 w-14">
+        <div className="relative h-10 w-10 aspect-square">
           <Image
             fill
             src={user.image}
             alt="profile picture"
             referrerPolicy="no-referrer"
+            className="rounded-lg"
           />
         </div>
       ) : (
