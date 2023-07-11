@@ -11,14 +11,14 @@ import { ArrowUp, Loader2 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+
 interface pageProps {
   params: {
     postId: string;
   };
 }
-
-export const dynamic = 'force-dynamic';
-export const fetchCache = 'force-no-store';
 
 const page = async ({ params }: pageProps) => {
   const cachedPost = (await redis.hgetall(
@@ -67,7 +67,7 @@ const page = async ({ params }: pageProps) => {
           {' '}
           {post?.title ?? cachedPost.title}
         </h1>
-        <EditorOutput content={post?.content} />
+        <EditorOutput content={post?.content ?? cachedPost.content} />
         <Suspense fallback={<Loader2 className="h-5 w-5 animate-spin" />}>
           <CommentsSection postId={post?.id ?? cachedPost.id} />
         </Suspense>
