@@ -1,7 +1,7 @@
 import FeaturedProductCard from '@/components/FeaturedProductCard';
 import Greeting from '@/components/Greeting';
 import PostFeed from '@/components/PostFeed';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from '@/components/ui/Seperator';
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config';
 import { db } from '@/lib/db';
 
