@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import DropMenu from './DropMenu';
 import ProfileNav from './ProfileNav';
+import SearchBar from './SearchBar';
 import { buttonVariants } from './ui/Button';
 import { Input } from './ui/Input';
 
@@ -31,11 +32,9 @@ const Navbar = async () => {
           </Link>
         </div>
         {/* Search bar */}
-        <div className="flex justify-center items-center">
-          <Input
-            placeholder="Search"
-            className="hidden  sm:flex bg-greenBlack border-borderShinyblue text-darkGray"
-          />
+        <div className="flex bg-greenBlack border-borderShinyblue text-darkGray justify-center items-center p-4">
+          {/* <Input placeholder="Search" className="bg-greenBlack" /> */}
+          <SearchBar />
         </div>
         <div className="sm:flex items-center gap-5 hidden">
           <Link
