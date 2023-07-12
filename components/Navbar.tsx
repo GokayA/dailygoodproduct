@@ -5,8 +5,7 @@ import Link from 'next/link';
 import DropMenu from './DropMenu';
 import ProfileNav from './ProfileNav';
 import SearchBar from './SearchBar';
-import { buttonVariants } from './ui/Button';
-import { Input } from './ui/Input';
+import { Button, buttonVariants } from './ui/Button';
 
 const Navbar = async () => {
   const session = await getServerSession(authOptions);
@@ -50,6 +49,14 @@ const Navbar = async () => {
         </div>
       </div>
       <div className="flex gap-5">
+        <a href="/post">
+          <Button
+            className="text-red-800 font-thin text-xl hover:no-underline hover:text-2xl sm:flex hidden"
+            variant="link"
+          >
+            Submit
+          </Button>
+        </a>
         {session?.user ? (
           <ProfileNav user={session.user} />
         ) : (

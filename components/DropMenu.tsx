@@ -19,7 +19,7 @@ const DropMenu: FC<DropMenuProps> = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <Link href="/search">Search</Link>
+          <Link href="/post">Submit</Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link href="/products">Products</Link>
