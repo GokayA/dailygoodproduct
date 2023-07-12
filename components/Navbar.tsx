@@ -24,7 +24,6 @@ const Navbar = async () => {
                 className="object-contain"
               />
             </div>
-            {/* <Icons.logo className="h-7 w-7 sm:h-10 sm:w-10  text-lightSlateGray" /> */}
 
             <div className="sm:hidden flex justify-center items-center">
               <DropMenu />
@@ -33,7 +32,6 @@ const Navbar = async () => {
         </div>
         {/* Search bar */}
         <div className="flex bg-greenBlack border-borderShinyblue text-darkGray justify-center items-center p-4">
-          {/* <Input placeholder="Search" className="bg-greenBlack" /> */}
           <SearchBar />
         </div>
         <div className="sm:flex items-center gap-5 hidden">

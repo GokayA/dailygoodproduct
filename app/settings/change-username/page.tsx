@@ -16,12 +16,16 @@ const page = async ({}: pageProps) => {
   }
 
   return (
-    <div className="">
+    <div className="max-w-4xl">
       <div className="grid items-start gap-5">
-        <h1 className="text-white">Settings</h1>
+        <h1 className="text-white py-12  text-4xl leading-6">
+          Change Username
+        </h1>
       </div>
       <div className="grid gap-8">
-        <UserNameForm />
+        <UserNameForm
+          user={{ id: session.user.id, username: session.user.username || '' }}
+        />
       </div>
     </div>
   );

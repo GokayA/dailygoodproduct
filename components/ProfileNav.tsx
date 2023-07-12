@@ -31,10 +31,10 @@ const ProfileNav = ({ user }: ProfileNavProps) => {
         <DropdownMenuItem
           className="cursor-pointer"
           onSelect={() => {
-            router.push('/settings');
+            router.push('/settings/change-username');
           }}
         >
-          Settings
+          Change Username
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
