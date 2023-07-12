@@ -8,14 +8,9 @@ import { formatTimeToNow } from '@/lib/utils';
 import { CachedPost } from '@/types/redis';
 import { Post, User, Vote } from '@prisma/client';
 import { ArrowUp, Loader2 } from 'lucide-react';
-import { Metadata } from 'next';
+
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-
-export const metada: Metadata = {
-  title: 'Pro Product Review',
-  description: 'PPR with Nextjs and Typescript',
-};
 
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
