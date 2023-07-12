@@ -6,7 +6,7 @@ import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { Roboto_Flex } from 'next/font/google';
 
-const inter = Roboto_Flex({ subsets: ['latin'] });
+const roboto = Roboto_Flex({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Pro product review',
@@ -21,13 +21,13 @@ export default function RootLayout({
   authModal: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn('bg-greenBlack', inter.className)}>
+    <html lang="en" className={cn('bg-greenBlack', roboto.className)}>
       <body className="bg-greenBlack">
         <Providers>
           <Navbar />
           {authModal}
 
-          <div className=" max-w-[90rem] w-full mx-auto h-full pt-12">
+          <div className="max-w-[90rem] w-full mx-auto h-full pt-12">
             {children}
             <Analytics />
           </div>
