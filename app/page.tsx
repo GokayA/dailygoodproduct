@@ -1,5 +1,6 @@
 import Greeting from '@/components/Greeting';
 import PostFeed from '@/components/PostFeed';
+import TopPostFeed from '@/components/top-post-feed/TopPostFeed';
 import { Separator } from '@/components/ui/Seperator';
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config';
 import { db } from '@/lib/db';
@@ -16,7 +17,24 @@ export default async function Home() {
     },
     take: INFINITE_SCROLLING_PAGINATION_RESULTS,
   });
-
+  const topPosts = await db.post.findMany({
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+      _count: {
+        select: {
+          votes: true,
+        },
+      },
+    },
+    orderBy: {
+      votes: {
+        _count: 'desc',
+      },
+    },
+    take: INFINITE_SCROLLING_PAGINATION_RESULTS,
+  });
   return (
     <div className="grid grid-rows-1 grid-cols-3 gap-4 ">
       <div className="md:col-span-2 col-span-3">
@@ -25,7 +43,7 @@ export default async function Home() {
       <div className="hidden md:block md:col-start-3 md:row-span-3 border-l border-borderShinyblue">
         <div className="pl-2">
           <h1 className="text-darkGray pb-8 pl-4">Top products</h1>
-          <PostFeed initialPosts={lastPosts} />
+          <TopPostFeed initialPosts={topPosts} />
         </div>
       </div>
 

@@ -1,9 +1,41 @@
-import { FC } from 'react';
+import Greeting from '@/components/Greeting';
+import TopPostFeed from '@/components/top-post-feed/TopPostFeed';
+import { Separator } from '@/components/ui/Seperator';
+import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config';
+import { db } from '@/lib/db';
 
-interface pageProps {}
+export default async function Home() {
+  const topPosts = await db.post.findMany({
+    include: {
+      votes: true,
+      author: true,
+      comments: true,
+      _count: {
+        select: {
+          votes: true,
+        },
+      },
+    },
+    orderBy: {
+      votes: {
+        _count: 'desc',
+      },
+    },
+    take: INFINITE_SCROLLING_PAGINATION_RESULTS,
+  });
 
-const page: FC<pageProps> = ({}) => {
-  return <div className="text-center text-white">Work In progress.</div>;
-};
-
-export default page;
+  return (
+    <div className="grid grid-rows-1 grid-cols-3 gap-4 md:container ">
+      <div className="md:col-span-3 col-span-3">
+        <Greeting />
+      </div>
+      <div className="grid row-span-3 md:row-span-2 col-span-3 md:col-span-3 gap-4 md:container">
+        <Separator className="mb-10 bg-borderShinyblue w-screen md:w-full" />
+        <div className="max-md:container">
+          <h1 className="text-darkGray pb-8 text-2xl ">Top Rated Products</h1>
+          <TopPostFeed initialPosts={topPosts} />
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -6,13 +6,13 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
 import { FC, useEffect, useRef } from 'react';
-import FeaturedProductCard from './FeaturedProductCard';
+import TopPostCard from './TopPostCard';
 
 interface PostFeedProps {
   initialPosts: ExtendedPost[];
 }
 
-const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
+const TopPostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
   const { data: session } = useSession();
   const lastPostRef = useRef<HTMLElement>(null);
   const { ref, entry } = useIntersection({
@@ -20,9 +20,9 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
     threshold: 1,
   });
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
-    ['useInfinite-query'],
+    ['query'],
     async ({ pageParam = 1 }) => {
-      const query = `/api/products/last-post/fetch?limit=${INFINITE_SCROLLING_PAGINATION_RESULTS}&page=${pageParam}`;
+      const query = `/api/products/top-post/fetch?limit=${INFINITE_SCROLLING_PAGINATION_RESULTS}&page=${pageParam}`;
 
       const { data } = await axios.get(query);
       return data as ExtendedPost[];
@@ -55,7 +55,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
         if (index === posts.length - 1) {
           return (
             <li key={post.id} ref={ref}>
-              <FeaturedProductCard
+              <TopPostCard
                 commentAmt={post.comments.length}
                 post={post}
                 currentVote={currentVote}
@@ -65,7 +65,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
           );
         } else {
           return (
-            <FeaturedProductCard
+            <TopPostCard
               commentAmt={post.comments.length}
               post={post}
               key={post.id}
@@ -79,4 +79,4 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
   );
 };
 
-export default PostFeed;
+export default TopPostFeed;
