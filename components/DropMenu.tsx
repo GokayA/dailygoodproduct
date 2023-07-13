@@ -1,3 +1,4 @@
+import { getAuthSession } from '@/lib/auth';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -11,7 +12,8 @@ import {
 
 interface DropMenuProps {}
 
-const DropMenu: FC<DropMenuProps> = () => {
+const DropMenu = async () => {
+  const session = await getAuthSession();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -19,7 +21,7 @@ const DropMenu: FC<DropMenuProps> = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <Link href="/post">Submit</Link>
+          {session?.user ? <Link href="/post">Submit</Link> : null}
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link href="/products">Products</Link>

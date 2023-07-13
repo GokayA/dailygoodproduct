@@ -49,14 +49,17 @@ const Navbar = async () => {
         </div>
       </div>
       <div className="flex gap-5">
-        <a href="/post">
-          <Button
-            className="text-red-800 font-thin text-xl hover:no-underline hover:text-2xl sm:flex hidden"
-            variant="link"
-          >
-            Submit
-          </Button>
-        </a>
+        {session?.user ? (
+          <a href="/post">
+            <Button
+              className="text-red-800 font-thin text-xl hover:no-underline hover:text-2xl sm:flex hidden"
+              variant="link"
+            >
+              Submit
+            </Button>
+          </a>
+        ) : null}
+
         {session?.user ? (
           <ProfileNav user={session.user} />
         ) : (
