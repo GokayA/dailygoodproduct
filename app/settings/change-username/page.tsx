@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { FC } from 'react';
 
 export const metadata = {
-  title: 'ProProductReview | Settings',
+  title: 'Pro Review Product | Settings',
   description: 'Manage account',
 };
 interface pageProps {}

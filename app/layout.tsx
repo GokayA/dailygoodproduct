@@ -9,8 +9,8 @@ import { Roboto_Flex } from 'next/font/google';
 const roboto = Roboto_Flex({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Pro product review',
-  description: 'Pro product review | Home',
+  title: 'Pro Review Product',
+  description: 'Pro Review Product | Home',
 };
 
 export default function RootLayout({
