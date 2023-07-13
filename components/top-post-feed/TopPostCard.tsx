@@ -34,7 +34,7 @@ const TopPostCard = ({
             {/* <p className="text-lightSlateGray">subtitle</p> */}
             <div className="flex gap-2">
               <p className="text-sm text-lightSlateGray">
-                posted by u/ {post.author.username}
+                posted by {post.author.username}
               </p>
               <p className="text-sm text-white">{commentAmt} Comments</p>
             </div>

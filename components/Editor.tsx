@@ -46,8 +46,7 @@ const Editor = () => {
       });
     },
     onSuccess: () => {
-      const newPathname = pathname.split('/').slice(0, -1).join('/');
-      router.push(newPathname);
+      router.push('/');
       router.refresh();
       return toast({
         description: 'Your post is created!',
