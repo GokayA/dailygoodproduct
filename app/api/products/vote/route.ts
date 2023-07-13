@@ -49,7 +49,6 @@ export async function PATCH(req: Request) {
         // delete Recount the votes
         const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === 'UP') return acc + 1;
-          if (vote.type === 'DOWN') return acc - 1;
           return acc;
         }, 0);
 
@@ -83,7 +82,6 @@ export async function PATCH(req: Request) {
       // update recount the votes
       const votesAmt = post.votes.reduce((acc, vote) => {
         if (vote.type === 'UP') return acc + 1;
-        if (vote.type === 'DOWN') return acc - 1;
         return acc;
       }, 0);
       if (votesAmt >= CACHE_AFTER_UPVOTES) {
@@ -111,7 +109,6 @@ export async function PATCH(req: Request) {
     //create  recount the votes
     const votesAmt = post.votes.reduce((acc, vote) => {
       if (vote.type === 'UP') return acc + 1;
-      if (vote.type === 'DOWN') return acc - 1;
       return acc;
     }, 0);
     if (votesAmt >= CACHE_AFTER_UPVOTES) {

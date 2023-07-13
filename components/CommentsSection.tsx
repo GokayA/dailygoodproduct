@@ -38,7 +38,6 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
             const topLevelCommentVotesAmt = topLevelComment.votes.reduce(
               (acc, vote) => {
                 if (vote.type === 'UP') return acc + 1;
-                if (vote.type === 'DOWN') return acc - 1;
                 return acc;
               },
               0
@@ -63,7 +62,6 @@ const CommentsSection = async ({ postId }: CommentsSectionProps) => {
                   .map((reply) => {
                     const replyVotesAmt = reply.votes.reduce((acc, vote) => {
                       if (vote.type === 'UP') return acc + 1;
-                      if (vote.type === 'DOWN') return acc - 1;
                       return acc;
                     }, 0);
                     const replyVote = topLevelComment.votes.find(

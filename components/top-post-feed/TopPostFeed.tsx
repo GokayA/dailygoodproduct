@@ -46,7 +46,7 @@ const TopPostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
       {posts.map((post, index) => {
         const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === 'UP') return acc + 1;
-          if (vote.type === 'DOWN') return acc - 1;
+
           return acc;
         }, 0);
         const currentVote = post.votes.find(

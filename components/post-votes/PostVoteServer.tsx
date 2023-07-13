@@ -26,7 +26,7 @@ const PostVoteServer = async ({
     if (!post) return notFound();
     _votesAmt = post.votes.reduce((acc, vote) => {
       if (vote.type === 'UP') return acc + 1;
-      if (vote.type === 'DOWN') return acc - 1;
+
       return acc;
     }, 0);
 
