@@ -25,9 +25,14 @@ const ProfileNav = ({ user }: ProfileNavProps) => {
           className="h-8 w-8"
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {user.name}
-        <DropdownMenuSeparator />
+      <DropdownMenuContent className="bg-greenBlack text-lightSlateGray border-none font-medium">
+        <div className="flex items-center justify-start pl-1">
+          <div className="flex flex-col truncate text-sm text-white/60 font-thin">
+            <p>{user.name}</p>
+            <p>{user.email}</p>
+          </div>
+        </div>
+        <DropdownMenuSeparator className="bg-borderShinyblue" />
         <DropdownMenuItem
           className="cursor-pointer"
           onSelect={() => {
@@ -35,6 +40,14 @@ const ProfileNav = ({ user }: ProfileNavProps) => {
           }}
         >
           Change Username
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onSelect={() => {
+            router.push(`/settings/your-history`);
+          }}
+        >
+          Your History
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"

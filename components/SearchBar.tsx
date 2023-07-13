@@ -1,5 +1,6 @@
 'use client';
 import { useOnClickOutside } from '@/hooks/use-on-click-outside';
+import { cn } from '@/lib/utils';
 import { Post, Prisma } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -52,21 +53,22 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   return (
     <Command
       ref={commandRef}
-      className="relative rounded-lg border max-w-lg z-50 overflow-visible bg-borderShinyblue text-white"
+      className="relative max-w-lg z-20 overflow-visible bg-greenBlack text-darkGray border border-borderShinyblue rounded-md"
     >
       <CommandInput
+        isLoading={isFetching}
         onValueChange={(text) => {
           setInput(text);
           debounceRequest();
         }}
         value={input}
-        className="outline-none border-none focus:border-none focus:outline-none ring-0"
+        className="outline-none border-none focus:border-none focus:outline-none ring-0 placeholder:text-darkGray"
         placeholder="Search products..."
       />
       {input.length > 0 && (
-        <CommandList className="absolute bg-borderShinyblue top-full inset-x-0 shadow rounded-b-md">
+        <CommandList className="absolute bg-borderShinyblue top-full inset-x-0">
           {isFetched && (
-            <CommandEmpty className="bg-borderShinyblue text-white pl-1">
+            <CommandEmpty className="bg-borderShinyblue  pl-1">
               No results found.
             </CommandEmpty>
           )}
