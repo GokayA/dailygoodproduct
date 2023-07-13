@@ -1,7 +1,4 @@
-import { db } from '@/lib/db';
 import { Post, User, Vote } from '@prisma/client';
-import { ArrowUp, MessageSquare } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import ImageRenderer from './ImageRenderer';
 import PostVoteClient from './post-votes/PostVoteClient';
