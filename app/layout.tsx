@@ -27,7 +27,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {authModal}
-          <div className="flex flex-col justify-between min-h-screen flex-grow">
+          <div className="flex flex-col justify-between min-h-screen ">
             <div className="max-w-[90rem] w-full mx-auto  pt-12">
               {children}
             </div>

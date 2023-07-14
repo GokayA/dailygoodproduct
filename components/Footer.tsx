@@ -7,7 +7,7 @@ const Footer = () => {
   const date = getYear(new Date());
 
   return (
-    <div className="flex flex-col shrink-0">
+    <div className="flex flex-col ">
       <Separator className="bg-borderShinyblue my-5 container" />
       <div className="flex justify-between text-lightSlateGray container text-sm pb-10">
         <div className="">Copyright © {date} - Pro Review Product</div>

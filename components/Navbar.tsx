@@ -68,13 +68,13 @@ const Navbar = async () => {
               href="/sign-in"
               className={`${buttonVariants({
                 variant: 'ghost',
-              })} text-base text-lightSlateGray`}
+              })} text-base text-lightSlateGray hidden md:block`}
             >
               Sign in
             </Link>
             <Link
               href="/sign-in"
-              className={`${buttonVariants()}, text-base font-normal hover:bg-white bg-red-800 text-white hover:text-black`}
+              className={`${buttonVariants()}, truncate text-base font-normal hover:bg-white bg-red-800 text-white hover:text-black`}
             >
               Sign up
             </Link>
