@@ -1,4 +1,5 @@
 import { Post, User, Vote } from '@prisma/client';
+import { MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import ImageRenderer from './ImageRenderer';
 import PostVoteClient from './post-votes/PostVoteClient';
@@ -36,7 +37,10 @@ const FeaturedProductCard = ({
               <p className="text-sm text-lightSlateGray">
                 posted by {post.author.username}
               </p>
-              <p className="text-sm text-white">{commentAmt} Comments</p>
+              <div className="flex">
+                <p className="text-sm text-darkGray ">{commentAmt}</p>
+                <MessageSquare className="text-darkGray mt-0.5 ml-2 w-5 h-5 " />
+              </div>
             </div>
           </div>
         </div>
