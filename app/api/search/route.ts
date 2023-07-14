@@ -16,7 +16,7 @@ export async function GET(req: Request) {
     include: {
       _count: true,
     },
-    take: INFINITE_SCROLLING_PAGINATION_RESULTS,
+    take: 5,
   });
 
   return new Response(JSON.stringify(results));
