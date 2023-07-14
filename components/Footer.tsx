@@ -8,7 +8,7 @@ const Footer: FC<FooterProps> = ({}) => {
   return (
     <>
       <Separator className="bg-borderShinyblue my-5 container" />
-      <div className="flex justify-between text-lightSlateGray container text-sm pb-2">
+      <div className="flex justify-between text-lightSlateGray container text-sm pb-10">
         <div className="">Copyright © 2023 - Pro Review Product</div>
         <div className="flex gap-3">
           <div className="flex">
