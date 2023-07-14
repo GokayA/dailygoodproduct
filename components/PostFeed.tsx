@@ -4,6 +4,7 @@ import { ExtendedPost } from '@/types/db';
 import { useIntersection } from '@mantine/hooks';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { Loader2 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { FC, useEffect, useRef } from 'react';
 import FeaturedProductCard from './FeaturedProductCard';
@@ -74,6 +75,11 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
           );
         }
       })}
+      {isFetchingNextPage && (
+        <li className="flex justify-center">
+          <Loader2 className="animate-spin text-borderShinyblue" />
+        </li>
+      )}
     </ul>
   );
 };

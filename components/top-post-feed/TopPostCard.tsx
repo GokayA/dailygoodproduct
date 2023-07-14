@@ -15,6 +15,7 @@ interface TopPostCardProps {
   votesAmt: number;
   currentVote?: PartialVote;
   commentAmt: number;
+  className: string;
 }
 
 const TopPostCard = ({
@@ -22,13 +23,15 @@ const TopPostCard = ({
   commentAmt,
   votesAmt,
   currentVote,
+  className,
+  ...props
 }: TopPostCardProps) => {
   return (
     <div className="flex justify-between items-center cursor-pointer hover:border-t  hover:border-t-red-700 pr-2">
       <Link href={`/post/${post.id}`}>
         <div className="flex gap-4 justify-between items-center ">
-          <div className="relative w-24 h-24">
-            <ImageRenderer content={post.content} />
+          <div className="">
+            <ImageRenderer content={post.content} className={className} />
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-darkGray">{post.title}</p>

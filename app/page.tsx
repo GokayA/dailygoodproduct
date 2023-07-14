@@ -43,7 +43,7 @@ export default async function Home() {
       <div className="hidden lg:block lg:col-start-3 lg:row-span-3 border-l border-borderShinyblue">
         <div className="pl-2">
           <h1 className="text-darkGray pb-4 pl-4">Top products</h1>
-          <TopPostFeed initialPosts={topPosts} />
+          <TopPostFeed initialPosts={topPosts} className="h-16 w-16" />
         </div>
       </div>
 

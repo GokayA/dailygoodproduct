@@ -28,7 +28,7 @@ const FeaturedProductCard = ({
       <Link href={`/post/${post.id}`}>
         <div className="flex gap-4 justify-between items-center ">
           <div className="relative w-24 h-24">
-            <ImageRenderer content={post.content} />
+            <ImageRenderer content={post.content} className="w-24 h-24" />
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-darkGray">{post.title}</p>

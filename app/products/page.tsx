@@ -33,7 +33,7 @@ export default async function Home() {
         <Separator className="mb-10 bg-borderShinyblue" />
         <div className="max-lg:container  ">
           <h1 className="text-darkGray pb-8 text-2xl">Top Rated Products</h1>
-          <TopPostFeed initialPosts={topPosts} />
+          <TopPostFeed className="h-24 w-24" initialPosts={topPosts} />
         </div>
       </div>
     </div>

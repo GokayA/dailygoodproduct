@@ -7,7 +7,7 @@ import type EditorJS from '@editorjs/editorjs';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -29,7 +29,6 @@ const Editor = () => {
   const _titleRef = useRef<HTMLTextAreaElement>(null);
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const pathname = usePathname();
   const router = useRouter();
 
   const { mutate: createPost } = useMutation({
@@ -49,7 +48,7 @@ const Editor = () => {
       router.push('/');
       router.refresh();
       return toast({
-        description: 'Your post is created!',
+        description: 'Your post is created, redirecting!',
       });
     },
   });
@@ -169,10 +168,7 @@ const Editor = () => {
             placeholder="Product Name"
             className="text-white w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
           />
-          <TextareaAutosize
-            placeholder="Subreddit name"
-            className="text-white w-full resize-none hover:border-none appearance-none overflow-hidden bg-transparent text-3xl font-bold focus:outline-none border-none"
-          />
+
           <div id="editor" className="min-h-[300px]" />
         </div>
       </form>

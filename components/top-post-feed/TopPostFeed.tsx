@@ -4,15 +4,17 @@ import { ExtendedPost } from '@/types/db';
 import { useIntersection } from '@mantine/hooks';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { Loader2 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { FC, useEffect, useRef } from 'react';
 import TopPostCard from './TopPostCard';
 
 interface PostFeedProps {
   initialPosts: ExtendedPost[];
+  className: string;
 }
 
-const TopPostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
+const TopPostFeed: FC<PostFeedProps> = ({ initialPosts, className }) => {
   const { data: session } = useSession();
   const lastPostRef = useRef<HTMLElement>(null);
   const { ref, entry } = useIntersection({
@@ -60,6 +62,7 @@ const TopPostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
                 post={post}
                 currentVote={currentVote}
                 votesAmt={votesAmt}
+                className={className}
               />
             </li>
           );
@@ -71,10 +74,16 @@ const TopPostFeed: FC<PostFeedProps> = ({ initialPosts }) => {
               key={post.id}
               currentVote={currentVote}
               votesAmt={votesAmt}
+              className={className}
             />
           );
         }
       })}
+      {isFetchingNextPage && (
+        <li className="flex justify-center">
+          <Loader2 className="animate-spin text-borderShinyblue" />
+        </li>
+      )}
     </ul>
   );
 };
