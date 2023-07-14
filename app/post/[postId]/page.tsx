@@ -59,7 +59,7 @@ const page = async ({ params }: pageProps) => {
           }}
         />
       </Suspense>
-      <div className="w-full flex-1 p-4 rounded-sm">
+      <div className="w-full flex-1 p-4 rounded-sm ">
         <p className="max-h-40 truncate text-xs text-lightSlateGray">
           Posted by {post?.author.username ?? cachedPost.authorUsername}{' '}
           {formatTimeToNow(new Date(post?.createdAt ?? cachedPost.createdAt))}
