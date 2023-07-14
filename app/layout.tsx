@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/Toaster';
@@ -22,13 +23,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn('bg-greenBlack', roboto.className)}>
-      <body className="bg-greenBlack">
+      <body className="bg-greenBlack  flex flex-col justify-between">
         <Providers>
           <Navbar />
           {authModal}
-
-          <div className="max-w-[90rem] w-full mx-auto h-full pt-12">
-            {children}
+          <div className="flex flex-col justify-between h-screen">
+            <div className="max-w-[90rem] w-full mx-auto h-full pt-12">
+              {children}
+            </div>
+            <Footer />
             <Analytics />
           </div>
         </Providers>
