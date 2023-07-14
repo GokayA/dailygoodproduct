@@ -1,15 +1,16 @@
+import { getYear } from 'date-fns';
 import { Dot } from 'lucide-react';
 import Link from 'next/link';
-import { FC } from 'react';
 import { Separator } from './ui/Seperator';
-interface FooterProps {}
 
-const Footer: FC<FooterProps> = ({}) => {
+const Footer = () => {
+  const date = getYear(new Date());
+
   return (
     <>
       <Separator className="bg-borderShinyblue my-5 container" />
       <div className="flex justify-between text-lightSlateGray container text-sm pb-10">
-        <div className="">Copyright © 2023 - Pro Review Product</div>
+        <div className="">Copyright © {date} - Pro Review Product</div>
         <div className="flex gap-3">
           <div className="flex">
             <Link href="https://twitter.com">Twitter</Link>

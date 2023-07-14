@@ -1,8 +1,4 @@
-import { FC } from 'react';
-
-interface GreetingProps {}
-
-const Greeting: FC<GreetingProps> = ({}) => {
+const Greeting = () => {
   return (
     <div className="border rounded-md border-borderShinyblue container max-w-7xl mx-auto h-full">
       <h1 className="text-darkGray pt-12">Welcome to Pro Review Product!</h1>

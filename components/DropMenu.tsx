@@ -1,16 +1,12 @@
 import { getAuthSession } from '@/lib/auth';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
-import { FC } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/Dropdown-menu';
-
-interface DropMenuProps {}
 
 const DropMenu = async () => {
   const session = await getAuthSession();

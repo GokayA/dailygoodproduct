@@ -1,9 +1,6 @@
 import Image from 'next/image';
-import { FC } from 'react';
 
-interface pageProps {}
-
-const page: FC<pageProps> = ({}) => {
+const page = () => {
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 pt-8">
       <div className="flex flex-col space-y-2 justify-center items-center text-center">

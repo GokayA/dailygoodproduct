@@ -1,10 +1,7 @@
 import Editor from '@/components/Editor';
 import { Button } from '@/components/ui/Button';
-import { FC } from 'react';
 
-interface pageProps {}
-
-const page: FC<pageProps> = ({}) => {
+const page = ({}) => {
   return (
     <div className="m-4 flex flex-col items-start gap-5">
       <h2 className="text-3xl font-semibold leading-8 text-darkGray">

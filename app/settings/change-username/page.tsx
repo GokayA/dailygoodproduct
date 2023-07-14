@@ -1,15 +1,13 @@
 import UserNameForm from '@/components/UserNameForm';
 import { authOptions, getAuthSession } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import { FC } from 'react';
 
 export const metadata = {
   title: 'Pro Review Product | Settings',
   description: 'Manage account',
 };
-interface pageProps {}
 
-const page = async ({}: pageProps) => {
+const page = async () => {
   const session = await getAuthSession();
   if (!session?.user) {
     redirect(authOptions.pages?.signIn || `/sign-in`);

@@ -1,6 +1,5 @@
 'use client';
 import { useOnClickOutside } from '@/hooks/use-on-click-outside';
-import { cn } from '@/lib/utils';
 import { Post, Prisma } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -8,12 +7,10 @@ import { CommandEmpty, CommandGroup, CommandList } from 'cmdk';
 import debounce from 'lodash.debounce';
 import { PackageSearch } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Command, CommandInput, CommandItem } from './ui/Command';
 
-interface SearchBarProps {}
-
-const SearchBar: FC<SearchBarProps> = ({}) => {
+const SearchBar = () => {
   const router = useRouter();
   const [input, setInput] = useState<string>('');
   const commandRef = useRef<HTMLDivElement>(null);
@@ -29,6 +26,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
 
   const debounceRequest = useCallback(() => {
     request();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
