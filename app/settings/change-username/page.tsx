@@ -1,10 +1,11 @@
 import UserNameForm from '@/components/UserNameForm';
+import { COMPANY_NAME } from '@/config';
 import { authOptions, getAuthSession } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
 export const metadata = {
-  title: 'Pro Review Product | Settings',
-  description: 'Manage account',
+  title: `${COMPANY_NAME}| Settings`,
+  description: 'Change Username',
 };
 
 const page = async () => {

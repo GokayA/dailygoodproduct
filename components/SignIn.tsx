@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from '@/config';
 import Image from 'next/image';
 import UserAuthForm from './UserAuthForm';
 
@@ -14,11 +15,11 @@ const SignIn = () => {
           />
         </div>
         <h1 className="text-2xl font-semibold tracking-tight text-darkGray">
-          Welcome to Pro Review Product
+          Welcome to {COMPANY_NAME}
         </h1>
         <p className="max-w-xs mx-auto text-lightSlateGray">
-          Join our community and unlock a world of shared product reviews,
-          opinions, and discoveries.
+          Join our community and unlock a world of shared daily, good, and
+          products.
         </p>
       </div>
       <UserAuthForm />

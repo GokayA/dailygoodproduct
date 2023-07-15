@@ -1,3 +1,4 @@
+import { COMPANY_NAME } from '@/config';
 import { Github, Instagram, Linkedin, Minus, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,10 +16,10 @@ const page = () => {
           />
         </div>
         <h1 className="text-4xl font-semibold tracking-tight text-darkGray">
-          About Pro Review Product
+          About {COMPANY_NAME}
         </h1>
         <p className="max-w-2xl mx-auto text-xl text-lightSlateGray">
-          Pro Review Product your daily source for the best new Amazon products.
+          {COMPANY_NAME} your daily source for the best new Amazon products.
         </p>
         <p className="max-w-3xl mx-auto text-xl text-lightSlateGray">
           Discover and decide on the top products to buy, and be the first to

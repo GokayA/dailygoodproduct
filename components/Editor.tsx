@@ -167,6 +167,7 @@ const Editor = () => {
               //@ts-ignore
               _titleRef.current = e;
             }}
+            required
             maxLength={50}
             minLength={3}
             {...titleRest}
@@ -178,6 +179,7 @@ const Editor = () => {
               subtitleRef(e);
             }}
             {...subtitleRest}
+            required
             maxLength={80}
             minLength={3}
             placeholder="Subtitle"

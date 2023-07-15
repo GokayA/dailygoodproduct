@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/Toaster';
+import { COMPANY_NAME } from '@/config';
 import { cn } from '@/lib/utils';
 import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
@@ -10,8 +11,8 @@ import { Roboto_Flex } from 'next/font/google';
 const roboto = Roboto_Flex({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Pro Review Product',
-  description: 'Pro Review Product | Home',
+  title: `${COMPANY_NAME} | Home`,
+  description: `${COMPANY_NAME} with nextjs and typescript`,
 };
 
 export default function RootLayout({
