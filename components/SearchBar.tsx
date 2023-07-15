@@ -47,7 +47,7 @@ const SearchBar = () => {
   useEffect(() => {
     setInput('');
   }, [pathname]);
-  console.log('>>>>>', queryResults);
+
   return (
     <Command
       ref={commandRef}

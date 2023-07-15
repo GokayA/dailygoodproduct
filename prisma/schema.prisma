@@ -63,6 +63,7 @@ model User {
 model Post {
     id        String    @id @default(cuid())
     title     String
+    subtitle  String
     content   Json?
     createdAt DateTime  @default(now())
     updatedAt DateTime  @updatedAt

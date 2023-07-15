@@ -69,7 +69,7 @@ const PostVoteClient: FC<PostVoteClientProps> = ({
   });
 
   return (
-    <div className="cursor-pointer border-borderShinyblue hover:bg-slate-950  flex flex-col items-center justify-between border border- text-center w-14 h-16 rounded-lg ">
+    <div className="cursor-pointer border-borderShinyblue   flex flex-col items-center justify-between border border- text-center w-14 h-16 rounded-lg ">
       <Button
         onClick={() => vote('UP')}
         size="sm"

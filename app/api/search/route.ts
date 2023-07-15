@@ -1,4 +1,3 @@
-import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config';
 import { db } from '@/lib/db';
 
 export async function GET(req: Request) {

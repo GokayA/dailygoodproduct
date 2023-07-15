@@ -21,10 +21,11 @@ const Editor = () => {
     resolver: zodResolver(PostValidator),
     defaultValues: {
       title: '',
+      subtitle: '',
       content: null,
     },
   });
-
+  const [subtitle, setSubtitle] = useState<string>('');
   const ref = useRef<EditorJS>();
   const _titleRef = useRef<HTMLTextAreaElement>(null);
 
@@ -32,8 +33,8 @@ const Editor = () => {
   const router = useRouter();
 
   const { mutate: createPost } = useMutation({
-    mutationFn: async ({ title, content }: PostCreationRequest) => {
-      const payload: PostCreationRequest = { title, content };
+    mutationFn: async ({ title, content, subtitle }: PostCreationRequest) => {
+      const payload: PostCreationRequest = { title, subtitle, content };
       const { data } = await axios.post('api/products/create', payload);
       return data;
     },
@@ -143,6 +144,7 @@ const Editor = () => {
     const blocks = await ref.current?.save();
     const payload: PostCreationRequest = {
       title: data.title,
+      subtitle: data.subtitle,
       content: blocks,
     };
     createPost(payload);
@@ -153,6 +155,7 @@ const Editor = () => {
   }
 
   const { ref: titleRef, ...titleRest } = register('title');
+  const { ref: subtitleRef, ...subtitleRest } = register('subtitle');
 
   return (
     <div className="w-full p-4 bg-borderShinyblue rounded-md border border-darkGray">
@@ -164,9 +167,21 @@ const Editor = () => {
               //@ts-ignore
               _titleRef.current = e;
             }}
+            maxLength={50}
+            minLength={3}
             {...titleRest}
             placeholder="Product Name"
             className="text-white w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
+          />
+          <TextareaAutosize
+            ref={(e) => {
+              subtitleRef(e);
+            }}
+            {...subtitleRest}
+            maxLength={80}
+            minLength={3}
+            placeholder="Subtitle"
+            className="text-white w-full resize-none appearance-none overflow-hidden bg-transparent text-3xl font-semibold focus:outline-none"
           />
 
           <div id="editor" className="min-h-[300px]" />

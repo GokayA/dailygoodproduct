@@ -49,7 +49,7 @@ export default async function Home() {
 
       <div className="grid row-span-3 lg:row-span-2 col-span-3 lg:col-span-2 gap-4">
         <Separator className="mb-10 bg-borderShinyblue " />
-        <div className="max-lg:container">
+        <div className="">
           <h1 className="text-darkGray pb-8 text-2xl ">Todays products</h1>
           <PostFeed initialPosts={lastPosts} />
         </div>
