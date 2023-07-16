@@ -36,21 +36,21 @@ export default async function Home() {
     take: INFINITE_SCROLLING_PAGINATION_RESULTS,
   });
   return (
-    <div className="p-1 grid grid-rows-1 grid-cols-3 gap-4 ">
+    <div className="p-1 grid grid-rows-1 grid-cols-3 gap-4">
       <div className="lg:col-span-2 col-span-3">
         <Greeting />
       </div>
       <div className="hidden lg:block lg:col-start-3 lg:row-span-3 border-l border-borderShinyblue">
         <div className="pl-2">
-          <h1 className="text-darkGray pb-4 pl-4">Top products</h1>
-          <TopPostFeed initialPosts={topPosts} className="h-16 w-16" />
+          <h1 className="text-darkGray pb-4 pl-4 pr-1">Top products</h1>
+          <TopPostFeed initialPosts={topPosts} className="h-20 w-20" />
         </div>
       </div>
 
       <div className="grid row-span-3 lg:row-span-2 col-span-3 lg:col-span-2 gap-4">
-        <Separator className="mb-10 bg-borderShinyblue " />
+        <Separator className="mb-10 bg-borderShinyblue" />
         <div className="">
-          <h1 className="text-darkGray pb-8 text-2xl ">Todays products</h1>
+          <h1 className="text-darkGray pb-8 text-2xl">Todays products</h1>
           <PostFeed initialPosts={lastPosts} />
         </div>
       </div>
