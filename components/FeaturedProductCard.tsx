@@ -32,7 +32,7 @@ const FeaturedProductCard = ({
           </div>
           <div className="flex flex-col gap-3">
             <p className="text-darkGray">{post.title}</p>
-            <p className="text-lightSlateGray">{post.subtitle}</p>
+            <p className="text-lightSlateGray "> {post.subtitle}</p>
             <div className="flex gap-2">
               <p className="hidden sm:flex text-xs sm:text-sm text-lightSlateGray">
                 posted by {post.author.username}
