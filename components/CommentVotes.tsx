@@ -83,7 +83,7 @@ const CommentVote: FC<CommentVoteProps> = ({
           })}
         />
       </Button>
-      <p className="text-lightSlateGray pb-2">{votesAmt}</p>
+      <p className="text-lightSlateGray pb-2 pt-3">{votesAmt}</p>
     </div>
   );
 };
