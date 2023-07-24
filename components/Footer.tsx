@@ -13,19 +13,27 @@ const Footer = () => {
         <div className="pr-2"> {date}</div>
         <div className="flex gap-3">
           <div className="flex">
-            <Link href="https://twitter.com">Twitter</Link>
+            <Link target="_blank" href="https://twitter.com">
+              Twitter
+            </Link>
             <Dot className="w-4" />
           </div>
           <div className="flex">
-            <Link href="https://instagram.com">Instagram</Link>
+            <Link target="_blank" href="https://instagram.com">
+              Instagram
+            </Link>
             <Dot className="w-4 " />
           </div>
           <div className="flex">
-            <Link href="https://github.com">Github</Link>
+            <Link target="_blank" href="https://github.com">
+              Github
+            </Link>
             <Dot className="w-4 " />
           </div>
           <div className="flex">
-            <Link href="https://linkedin.com">LinkedIn</Link>
+            <Link target="_blank" href="https://linkedin.com">
+              LinkedIn
+            </Link>
           </div>
         </div>
       </div>

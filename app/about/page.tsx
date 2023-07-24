@@ -27,25 +27,29 @@ const page = () => {
         </p>
         <div className="flex pt-20 text-lightSlateGray">
           <div className="flex">
-            <Link className="text-lg" href="https://twitter.com">
+            <Link
+              target="_blank"
+              className="text-lg"
+              href="https://twitter.com"
+            >
               <Twitter className="w-10 hover:h-8 " />
             </Link>
             <Minus className="w-6" />
           </div>
           <div className="flex">
-            <Link className="flex" href="https://instagram.com">
+            <Link target="_blank" className="flex" href="https://instagram.com">
               <Instagram className="w-10 hover:h-8" />
             </Link>
             <Minus className="w-6" />
           </div>
           <div className="flex">
-            <Link className="flex" href="https://linkedin.com">
+            <Link target="_blank" className="flex" href="https://linkedin.com">
               <Linkedin className="w-10 hover:h-8" />
             </Link>
             <Minus className="w-6" />
           </div>
           <div className="flex">
-            <Link className="flex" href="https://github.com">
+            <Link target="_blank" className="flex" href="https://github.com">
               <Github className="w-10 hover:h-8" />
             </Link>
           </div>
